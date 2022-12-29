@@ -7,7 +7,7 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     
-    <body onload="showMedia('b')">
+    <body onload="showMedia('w')">
     
     	<nav class="navbar navbar-expand" style="padding-right: 100px; padding-left: 100px; background-color: #A3BBAD;">
     		<a class="navbar-brand" href="./main.php">
@@ -20,8 +20,8 @@
   			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                   <a class="nav-item nav-link" href="./main.php">Home</a>
-                  <a class="nav-item nav-link" href="./watchlist.php">Movies and Shows</a>
-                  <a class="nav-item nav-link active" href="./books.php">Books</a>
+                  <a class="nav-item nav-link active" href="./watchlist.php">Movies and Shows</a>
+                  <a class="nav-item nav-link" href="./books.php">Books</a>
                   <a class="nav-item nav-link" href="./settings.php">Settings</a>
                 </div>
   			</div>
@@ -29,7 +29,8 @@
     	
     	<div id="options"></div>
     	
-    	<div id="mediaDisplay" class="home"></div>
+    	<div id="mediaDisplay" class="home">
+        </div>
         
         <footer class="bg-light text-center text-lg-start">
         	<div class="text-center p-3">
