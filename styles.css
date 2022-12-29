@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+.navbar {
+	color: "#FFFFF"
+}
+
+.general-padding {
+    padding-right: 100px;
+    padding-left: 100px;
+}
+
+.home {
+	padding: 100px;
+}
