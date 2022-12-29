@@ -34,3 +34,28 @@ function resetData() {
 		alert("Your data has been reset!")
 	}
 }
+
+
+const watchlistGenres = ["Action", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "Film Noir", "History", "Horror", "Music", "Musical", "Mystery", "Romance", "Sci-Fi", "Sport", "Superhero", "Thriller", "War", "Western"];
+const booklistGenres = ["Adventure", "Art", "Children's", "Contemporary", "Cookbook", "Development", "Dystopian", "Families & Relationships", "Fantasy", "Guide/How-To", "Health", "Historical Fiction", "History", "Horror", "Humor", "Memoir", "Motivational", "Mystery", "Paranormal", "Romance", "Science Fiction", "Self-Help", "Thriller", "Travel"];
+
+function addGenres(itemType) {
+	var genreSection = document.getElementById("genreSelect");
+	let genreArray;
+	
+	if(itemType == "watchlist") {
+		genreArray = watchlistGenres;
+	} else {
+		genreArray = booklistGenres
+	}
+	var str = "";
+	
+	for(var i = 0; i < genreArray.length; i++) {
+		str += '<div class="form-check form-check-inline">';
+		str += '<input class="form-check-input" type="checkbox" id="' + i + '">';
+		str += '<label class="form-check-label" for="' + i + '">' + genreArray[i] + '</label></div>';
+	}
+	
+	genreSection.innerHTML = str;
+	
+}

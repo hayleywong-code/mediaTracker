@@ -12,3 +12,12 @@
 .home {
 	padding: 100px;
 }
+
+.addItem {
+	padding: 100px;
+	width: 1000px;
+}
+
+.row {
+	padding: 10px;
+}

@@ -16,15 +16,19 @@ if($_GET['todo'] === 'w') {
 function getWatchListAsHTML() {
     $result = '<table class="table table-hover"><thead><tr><th scope="col">Title</th>' .
               '<th scope="col">Type</th><th scope="col">Genre</th><th scope="col">Status</th>' .
-              '<th scope="col">Date</th><th scope="col">Rating</th></tr>' . PHP_EOL;
+              '<th scope="col">Date</th><th scope="col">Rating</th>' .
+              '<th data-field="operate" data-formatter="operateFormatter" data-events="operateEvents">' .
+              '</th></tr>' . PHP_EOL;
     
     echo $result;
 }
 
 function getBooksAsHTML() {
     $result = '<table class="table table-hover"><thead><tr><th scope="col">Title</th>' .
-        '<th scope="col">Author</th><th scope="col">Genre</th><th scope="col">Status</th>' .
-        '<th scope="col">Date</th><th scope="col">Rating</th></tr>' . PHP_EOL;
+              '<th scope="col">Author</th><th scope="col">Genre</th><th scope="col">Status</th>' .
+              '<th scope="col">Date</th><th scope="col">Rating</th>' .
+              '<th data-field="operate" data-formatter="operateFormatter" data-events="operateEvents">' .
+              '</th></tr>' . PHP_EOL;
     
     echo $result;
 }

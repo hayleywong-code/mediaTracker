@@ -27,10 +27,24 @@
   			</div>
     	</nav>
     	
-    	<div id="options"></div>
-    	
-    	<div id="mediaDisplay" class="home">
+    	<div id="options">
+        	<nav class="navbar navbar-expand" style="padding-right: 100px; padding-left: 100px;">
+        		<a class="navbar-brand" href="#">
+        			<h4>Watch List</h4>
+        		</a>
+        		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        			<span class="navbar-toggler-icon"></span>
+      			</button>
+      			
+      			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                      <a class="nav-item nav-link" href="./addWatchList.php">Add Show/Movie</a>
+                    </div>
+      			</div>
+        	</nav>
         </div>
+        
+        <div id="mediaDisplay" class="home"></div>
         
         <footer class="bg-light text-center text-lg-start">
         	<div class="text-center p-3">
