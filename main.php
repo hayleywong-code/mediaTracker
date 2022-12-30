@@ -20,9 +20,9 @@
   			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                   <a class="nav-item nav-link active" href="./main.php">Home</a>
-                  <a class="nav-item nav-link" href="./watchlist.php">Movies and Shows</a>
-                  <a class="nav-item nav-link" href="./books.php">Books</a>
-                  <a class="nav-item nav-link" href="./settings.php">Settings</a>
+                  <a class="nav-item nav-link" href="./watchlist.html">Movies and Shows</a>
+                  <a class="nav-item nav-link" href="./books.html">Books</a>
+                  <a class="nav-item nav-link" href="./settings.html">Settings</a>
                 </div>
   			</div>
     	</nav>

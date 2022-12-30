@@ -20,12 +20,26 @@
   			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                   <a class="nav-item nav-link" href="./main.php">Home</a>
-                  <a class="nav-item nav-link active" href="./watchlist.php">Movies and Shows</a>
-                  <a class="nav-item nav-link" href="./books.php">Books</a>
-                  <a class="nav-item nav-link" href="./settings.php">Settings</a>
+                  <a class="nav-item nav-link active" href="./watchlist.html">Movies and Shows</a>
+                  <a class="nav-item nav-link" href="./books.html">Books</a>
+                  <a class="nav-item nav-link" href="./settings.html">Settings</a>
                 </div>
   			</div>
     	</nav>
+    	
+    	<div id="options">
+        	<nav class="navbar navbar-expand" style="padding-right: 100px; padding-left: 100px;">
+        		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        			<span class="navbar-toggler-icon"></span>
+      			</button>
+      			
+      			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                      <a class="nav-item nav-link" href="./watchlist.html">Go Back</a>
+                    </div>
+      			</div>
+        	</nav>
+        </div>
     	
     	<form class="general-padding addItem">
     		<h3>Add A Show or Movie</h3>
@@ -39,11 +53,11 @@
     			
         		<div class="col-auto">
     				<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="type" id="show" value="show">
+						<input class="form-check-input" type="radio" name="type" id="show" value="show" required>
 						<label class="form-check-label" for="show">Show</label>
     				</div>
     				<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="type" id="movie" value="movie">
+						<input class="form-check-input" type="radio" name="type" id="movie" value="movie" required>
 						<label class="form-check-label" for="show">Movie</label>
     				</div>
     			</div>
@@ -54,20 +68,20 @@
     				<label for="date" class="col-form-label">Date Added/Watched</label>
     			</div>
     			<div class="col-auto">
-   					<input type="date" id="date" class="form-control">
+   					<input type="date" id="date" class="form-control" required>
    				</div>
    				
    				<div class="col-auto">
     				<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="status" id="tbw" value="tb">
+						<input class="form-check-input" type="radio" name="status" id="tbw" value="tb" required>
 						<label class="form-check-label" for="show">To Be Watched</label>
     				</div>
     				<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="status" id="ip" value="ip">
+						<input class="form-check-input" type="radio" name="status" id="ip" value="ip" required>
 						<label class="form-check-label" for="show">In Progress</label>
     				</div>
     				<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="status" id="c" value="c">
+						<input class="form-check-input" type="radio" name="status" id="c" value="c" required>
 						<label class="form-check-label" for="show">Completed</label>
     				</div>
     			</div>
@@ -82,7 +96,7 @@
 					<label for="rating" class="form-label">Rating</label>
 				</div>
 				<div class="col-auto">
-					<input type="range" class="form-range" min="0" max="5" step="1" id="rating">
+					<input type="range" class="form-range" min="0" max="5" step="1" id="rating" required>
 				</div>
 			</div>
 			

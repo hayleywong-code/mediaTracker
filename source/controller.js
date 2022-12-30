@@ -52,7 +52,7 @@ function addGenres(itemType) {
 	
 	for(var i = 0; i < genreArray.length; i++) {
 		str += '<div class="form-check form-check-inline">';
-		str += '<input class="form-check-input" type="checkbox" id="' + i + '">';
+		str += '<input class="form-check-input" type="checkbox" id="' + i + ' required">';
 		str += '<label class="form-check-label" for="' + i + '">' + genreArray[i] + '</label></div>';
 	}
 	
