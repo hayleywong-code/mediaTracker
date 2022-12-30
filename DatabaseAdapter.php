@@ -16,31 +16,11 @@ class DatabaseAdapter {
     }
     
     public function resetDatabase() {
-        $stmt = $this->DB->prepare("DROP DATABASE IF EXISTS hayleywong-code-mediaTracker;");
+        $stmt = $this->DB->prepare("DELETE FROM books;");
         $stmt->execute();
         
-        $stmt = $this->DB->prepare("CREATE DATABASE hayleywong-code-mediaTracker");
-        $stmt->execute();
-        
-        $update = " CREATE TABLE books (" .
-                  " title varchar(255) NOT NULL, " .
-                  " author varchar(255) NOT NULL, " .
-                  " genre varchar(255) NOT NULL, " .
-                  " status varchar(255) NOT NULL, " .
-                  " date date NOT NULL, " .
-                  " rating int(1) NOT NULL);";
-        $stmt = $this->DB->prepare($update);
-        $stmt->execute();
-        
-        $update = " CREATE TABLE watchlist (" .
-            " title varchar(255) NOT NULL, " .
-            " genre varchar(255) NOT NULL, " .
-            " type varchar(255) NOT NULL, " .
-            " status varchar(255) NOT NULL, " .
-            " date date NOT NULL, " .
-            " rating int(1) NOT NULL);";
-        $stmt = $this->DB->prepare($update);
-        $stmt->execute();
+        $stmt = $this->DB->prepare("DELETE FROM watchlist;");
+        $stmt->execute();        
     }
     
     public function addBook($title, $author, $date, $status, $genres, $rating) {
@@ -73,6 +53,20 @@ class DatabaseAdapter {
         $stmt->bindParam(':rating', $rating);
         
         $stmt->execute();
+    }
+    
+    public function getAllBooks() {
+        $stmt = $this->DB->prepare("SELECT * FROM books");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+    
+    public function getAllWatchlist() {
+        $stmt = $this->DB->prepare("SELECT * FROM watchlist");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
     }
     
 }

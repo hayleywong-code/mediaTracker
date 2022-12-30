@@ -90,10 +90,14 @@
 			
 			<div class="row">
 				<div class="col-auto">
-					<label for="rating" class="form-label">Rating</label>
-				</div>
-				<div class="col-auto">
-					<input type="range" class="form-range" min="0" max="5" step="1" name="rating" required>
+					<select class="form-select" name=rating aria-label="Default select example">
+						 <option value="" selected>Select Your Rating</option>
+						 <option value="(5) Masterpiece">(5) Masterpiece</option>
+						 <option value="(4) Very Good">(4) Very Good</option>
+						 <option value="(3) Fine">(3) Fine</option>
+						 <option value="(2) Bad">(2) Bad</option>
+						 <option value="(1) Horrible">(1) Horrible</option>
+					</select>
 				</div>
 			</div>
 			

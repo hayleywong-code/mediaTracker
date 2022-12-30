@@ -5,15 +5,15 @@ require_once './DatabaseAdapter.php';
 $db = new DatabaseAdapter();
 
 if(isset ($_GET['todo']) && $_GET['todo'] === 'w') {
-    echo getWatchListAsHTML() . PHP_EOL;
+    echo getWatchListAsHTML($db->getAllWatchlist()) . PHP_EOL;
 }
 
 if(isset ($_GET['todo']) && $_GET['todo'] === 'b') {
-    echo getBooksAsHTML() . PHP_EOL;
+    echo getBooksAsHTML($db->getAllBooks()) . PHP_EOL;
 }
 
 if (isset ($_GET['todo']) && $_GET['todo'] === 'reset') {
-    $db->resetDatabase();
+    echo $db->resetDatabase();
 }
 
 if (isset ( $_POST['addBook'] )) {
@@ -21,7 +21,7 @@ if (isset ( $_POST['addBook'] )) {
     $author = htmlspecialchars($_POST['author']);
     $date = $_POST['date'];
     $status = $_POST['status'];
-    $genres = $_POST['genreArray'];
+    $genres = implode(', ', $_POST['genreArray']);
     $rating = $_POST['rating'];
     
     if($date == NULL) {
@@ -40,7 +40,7 @@ if (isset ( $_POST['addWatchList'] )) {
     $itemType = $_POST['type'];
     $date = $_POST['date'];
     $status = $_POST['status'];
-    $genres = $_POST['genreArray'];
+    $genres = implode(', ', $_POST['genreArray']);
     $rating = $_POST['rating'];
     
     if($date == NULL) {
@@ -54,22 +54,33 @@ if (isset ( $_POST['addWatchList'] )) {
 }
 
 
-function getWatchListAsHTML() {
+function getWatchListAsHTML($arr) {
     $result = '<table class="table table-hover"><thead><tr><th scope="col">Title</th>' .
               '<th scope="col">Type</th><th scope="col">Genre</th><th scope="col">Status</th>' .
               '<th scope="col">Date</th><th scope="col">Rating</th>' .
               '<th data-field="operate" data-formatter="operateFormatter" data-events="operateEvents">' .
-              '</th></tr>' . PHP_EOL;
+              '</th></tr>';
+    
+    foreach ($arr as $item) {
+        
+        $result .= '<tr><td>' . $item['title'] .'</td><td>' . $item['type'] .'</td><td>' . $item['genre'] .'</td>' .
+            '<td>' . $item['status'] .'</td><td>' . $item['date'] .'</td><td>' . $item['rating'] .'</td>';
+    }
     
     echo $result;
 }
 
-function getBooksAsHTML() {
+function getBooksAsHTML($arr) {
     $result = '<table class="table table-hover"><thead><tr><th scope="col">Title</th>' .
               '<th scope="col">Author</th><th scope="col">Genre</th><th scope="col">Status</th>' .
               '<th scope="col">Date</th><th scope="col">Rating</th>' .
-              '<th data-field="operate" data-formatter="operateFormatter" data-events="operateEvents">' .
-              '</th></tr>' . PHP_EOL;
+              '</tr></thead><tbody>';
     
-    echo $result;
+    foreach ($arr as $book) {
+        
+        $result .= '<tr><td>' . $book['title'] .'</td><td>' . $book['author'] .'</td><td>' . $book['genre'] .'</td>' .
+                   '<td>' . $book['status'] .'</td><td>' . $book['date'] .'</td><td>' . $book['rating'] .'</td>';
+    }
+    
+    echo $result . '</tbody></table>' . PHP_EOL;
 }

@@ -27,6 +27,7 @@ function resetData() {
 	} else if (curClass.contains("btn-warning")) {
 		deleteButton.setAttribute("class", "btn btn-lg btn-danger");
 		deleteButton.textContent = "Reset Lists";
+		
 		let ajax = new XMLHttpRequest();
 
 		ajax.open('GET', 'controller.php?todo=reset', true);
