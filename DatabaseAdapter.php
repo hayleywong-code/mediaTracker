@@ -43,5 +43,36 @@ class DatabaseAdapter {
         $stmt->execute();
     }
     
+    public function addBook($title, $author, $date, $status, $genres, $rating) {
+        $insertStmt = "INSERT INTO books (title, author, genre, status, date, rating) " .
+            "VALUES (:title, :author, :genre, :status, :date, :rating)";
+        
+        $stmt = $this->DB->prepare($insertStmt);
+        
+        $stmt->bindParam(':title', $title);
+        $stmt->bindParam(':author', $author);
+        $stmt->bindParam(':genre', $genres);
+        $stmt->bindParam(':status', $status);
+        $stmt->bindParam(':date', $date);
+        $stmt->bindParam(':rating', $rating);
+        
+        $stmt->execute();
+    }
+    
+    public function addWatchList($title, $itemType, $date, $status, $genres, $rating) {
+        $insertStmt = "INSERT INTO watchlist (title, genre, type, status, date, rating) " .
+            "VALUES (:title, :genre, :type, :status, :date, :rating)";
+        
+        $stmt = $this->DB->prepare($insertStmt);
+        
+        $stmt->bindParam(':title', $title);
+        $stmt->bindParam(':genre', $genres);
+        $stmt->bindParam(':type', $itemType);
+        $stmt->bindParam(':status', $status);
+        $stmt->bindParam(':date', $date);
+        $stmt->bindParam(':rating', $rating);
+        
+        $stmt->execute();
+    }
     
 }

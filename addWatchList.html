@@ -41,23 +41,23 @@
         	</nav>
         </div>
     	
-    	<form class="general-padding addItem">
+    	<form class="general-padding addItem" action="controller.php" method="post" id="watchlistForm">
     		<h3>Add A Show or Movie</h3>
     		<div class="row g-3 align-items-center">
         		<div class="col-auto">
     				<label for="title" class="col-form-label">Title</label>
     			</div>
     			<div class="col-auto">
-    				<input type="text" id="title" class="form-control" required>
+    				<input type="text" name="title" class="form-control" required>
     			</div>
     			
         		<div class="col-auto">
     				<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="type" id="show" value="show" required>
+						<input class="form-check-input" type="radio" name="type" id="show" value="Show" required>
 						<label class="form-check-label" for="show">Show</label>
     				</div>
     				<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="type" id="movie" value="movie" required>
+						<input class="form-check-input" type="radio" name="type" id="movie" value="Movie" required>
 						<label class="form-check-label" for="show">Movie</label>
     				</div>
     			</div>
@@ -68,20 +68,20 @@
     				<label for="date" class="col-form-label">Date Added/Watched</label>
     			</div>
     			<div class="col-auto">
-   					<input type="date" id="date" class="form-control" required>
+   					<input type="date" name="date" class="form-control">
    				</div>
    				
    				<div class="col-auto">
     				<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="status" id="tbw" value="tb" required>
+						<input class="form-check-input" type="radio" name="status" value="To Be Watched" required>
 						<label class="form-check-label" for="show">To Be Watched</label>
     				</div>
     				<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="status" id="ip" value="ip" required>
+						<input class="form-check-input" type="radio" name="status" value="In Progress" required>
 						<label class="form-check-label" for="show">In Progress</label>
     				</div>
     				<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="status" id="c" value="c" required>
+						<input class="form-check-input" type="radio" name="status" value="Completed" required>
 						<label class="form-check-label" for="show">Completed</label>
     				</div>
     			</div>
@@ -96,11 +96,11 @@
 					<label for="rating" class="form-label">Rating</label>
 				</div>
 				<div class="col-auto">
-					<input type="range" class="form-range" min="0" max="5" step="1" id="rating" required>
+					<input type="range" class="form-range" min="0" max="5" step="1" name="rating" required>
 				</div>
 			</div>
 			
-			<input class="btn btn-primary"type="submit" name="add" value="Add Movie/Show" required>
+			<input class="btn btn-primary"type="submit" name="addWatchList" value="Add Movie/Show" required>
     	</form>
     	       
         <footer class="bg-light text-center text-lg-start">
