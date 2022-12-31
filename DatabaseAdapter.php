@@ -39,6 +39,16 @@ class DatabaseAdapter {
         $stmt->execute();
     }
     
+    public function deleteBook($id) {
+        $deleteStmt = "DELETE FROM books WHERE id=:id";
+        
+        $stmt = $this->DB->prepare($deleteStmt);
+        
+        $stmt->bindParam(':id', $id);
+        
+        $stmt->execute();        
+    }
+    
     public function addWatchList($title, $itemType, $date, $status, $genres, $rating) {
         $insertStmt = "INSERT INTO watchlist (title, genre, type, status, date, rating) " .
             "VALUES (:title, :genre, :type, :status, :date, :rating)";
@@ -51,6 +61,16 @@ class DatabaseAdapter {
         $stmt->bindParam(':status', $status);
         $stmt->bindParam(':date', $date);
         $stmt->bindParam(':rating', $rating);
+        
+        $stmt->execute();
+    }
+    
+    public function deleteWatchList($id) {
+        $deleteStmt = "DELETE FROM watchlist WHERE id=:id";
+        
+        $stmt = $this->DB->prepare($deleteStmt);
+        
+        $stmt->bindParam(':id', $id);
         
         $stmt->execute();
     }

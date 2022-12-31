@@ -65,3 +65,18 @@ function addGenres(itemType) {
 	genreSection.innerHTML = str;
 	
 }
+
+function deleteItem(whichTable, id) {
+	let ajax = new XMLHttpRequest();
+	
+	if(whichTable === 0) {
+		whichTable = "w";
+	} else {
+		whichTable = "b";
+	}
+
+	ajax.open('GET', 'controller.php?todo=' + whichTable + '&id=' + id, true);
+	ajax.send();
+
+	ajax.onreadystatechange = function() {};
+}

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Media Tracker</title>
+        <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="./source/styles.css">
         <meta name="viewport" content="width=device-width, initial-scale=2">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">

@@ -28,12 +28,13 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `books` (
+  `id` int(20) NOT NULL AUTO_INCREMENT primary key,
   `title` varchar(255) NOT NULL,
   `author` varchar(255) NOT NULL,
   `genre` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `date` date NOT NULL,
-  `rating` int(1) NOT NULL
+  `rating` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -43,12 +44,13 @@ CREATE TABLE `books` (
 --
 
 CREATE TABLE `watchlist` (
+  `id` int(20) NOT NULL AUTO_INCREMENT primary key,
   `title` varchar(255) NOT NULL,
   `genre` varchar(255) NOT NULL,
   `type` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `date` date NOT NULL,
-  `rating` int(1) NOT NULL
+  `rating` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 COMMIT;
 

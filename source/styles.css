@@ -1,7 +1,14 @@
 @charset "UTF-8";
 
-.navbar {
-	color: "#FFFFF"
+.navbar.display {
+	padding-right: 100px; 
+	padding-left: 100px;
+	background-color: #A3BBAD;
+}
+
+.navbar.option {
+	padding-right: 100px;
+	padding-left: 100px;
 }
 
 .general-padding {
@@ -20,4 +27,22 @@
 
 .row {
 	padding: 10px;
+}
+
+.center {
+	text-align: center;
+}
+
+.icon {
+	width: 20px;
+	height: 20px;
+	margin-left: 10px;
+}
+
+.options {
+	width: 5%;
+}
+
+.title {
+	width: 50%;
 }
