@@ -33,16 +33,28 @@
 	text-align: center;
 }
 
-.icon {
-	width: 20px;
-	height: 20px;
-	margin-left: 10px;
+.title-col {
+	width: 55%;
 }
 
-.options {
+.type-col {
 	width: 5%;
 }
 
-.title {
-	width: 50%;
+.book-title-col {
+	width: 40%;
+}
+
+.author-col {
+	width: 20%;
+}
+
+.option-col {
+	width: 7.5%;
+}
+
+
+.btn.options {
+	font-size: 12px;
+	display: inline;
 }

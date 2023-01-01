@@ -77,6 +77,4 @@ function deleteItem(whichTable, id) {
 
 	ajax.open('GET', 'controller.php?todo=' + whichTable + '&id=' + id, true);
 	ajax.send();
-
-	ajax.onreadystatechange = function() {};
 }
