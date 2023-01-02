@@ -16,11 +16,33 @@ class DatabaseAdapter {
     }
     
     public function resetDatabase() {
-        $stmt = $this->DB->prepare("DELETE FROM books;");
+        $stmt = $this->DB->prepare("DROP TABLE books;");
         $stmt->execute();
         
-        $stmt = $this->DB->prepare("DELETE FROM watchlist;");
-        $stmt->execute();        
+        $stmt = $this->DB->prepare("DROP TABLE watchlist");
+        $stmt->execute();
+        
+        $update = " CREATE TABLE books ( " .
+                  " id int(20) NOT NULL AUTO_INCREMENT primary key, " .
+                  " title varchar(255) NOT NULL, " . 
+                  " author varchar(255) NOT NULL, " .
+                  " genre varchar(255) NOT NULL, " .
+                  " status varchar(255) NOT NULL, " .
+                  " date date NOT NULL, " .
+                  " rating varchar(255) NOT NULL); ";
+        $stmt = $this->DB->prepare($update);
+        $stmt->execute();
+        
+        $update = " CREATE TABLE watchlist ( " .
+                  " id int(20) NOT NULL AUTO_INCREMENT primary key, " .
+                  " title varchar(255) NOT NULL, " .
+            	  " genre varchar(255) NOT NULL, " .
+            	  " type varchar(255) NOT NULL, " .
+            	  " status varchar(255) NOT NULL, " .
+            	  " date date NOT NULL, " .
+            	  " rating varchar(255) NOT NULL); ";
+        $stmt = $this->DB->prepare($update);
+        $stmt->execute();
     }
     
     public function addBook($title, $author, $date, $status, $genres, $rating) {
@@ -49,6 +71,24 @@ class DatabaseAdapter {
         $stmt->execute();        
     }
     
+    public function updateBook($id, $title, $author, $date, $status, $genres, $rating) {
+        $updateStmt = "UPDATE books SET title=:title, author=:author, genre=:genre, status=:status, date=:date, rating=:rating " .
+            "WHERE id=:id";
+        
+        $stmt = $this->DB->prepare($updateStmt);
+        
+        $stmt->bindParam(':title', $title);
+        $stmt->bindParam(':genre', $genres);
+        $stmt->bindParam(':author', $author);
+        $stmt->bindParam(':status', $status);
+        $stmt->bindParam(':date', $date);
+        $stmt->bindParam(':rating', $rating);
+        $stmt->bindParam(':id', $id);
+        
+        $stmt->execute();
+    }
+    
+    
     public function addWatchList($title, $itemType, $date, $status, $genres, $rating) {
         $insertStmt = "INSERT INTO watchlist (title, genre, type, status, date, rating) " .
             "VALUES (:title, :genre, :type, :status, :date, :rating)";
@@ -70,6 +110,23 @@ class DatabaseAdapter {
         
         $stmt = $this->DB->prepare($deleteStmt);
         
+        $stmt->bindParam(':id', $id);
+        
+        $stmt->execute();
+    }
+    
+    public function updateWatchlist($id, $title, $itemType, $date, $status, $genres, $rating) {
+        $updateStmt = "UPDATE watchlist SET title=:title, genre=:genre, type=:type, status=:status, date=:date, rating=:rating " .
+            "WHERE id=:id";
+        
+        $stmt = $this->DB->prepare($updateStmt);
+        
+        $stmt->bindParam(':title', $title);
+        $stmt->bindParam(':genre', $genres);
+        $stmt->bindParam(':type', $itemType);
+        $stmt->bindParam(':status', $status);
+        $stmt->bindParam(':date', $date);
+        $stmt->bindParam(':rating', $rating);
         $stmt->bindParam(':id', $id);
         
         $stmt->execute();
